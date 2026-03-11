@@ -27,7 +27,7 @@ app.get('/', async (req, res) => {
         
         // Render the homepage template with the data
         res.render('homepage', { 
-            title: 'F1 Drivers | Integrating With HubSpot I Practicum', 
+            title: 'Dog Breeds - Kishini Alexander', 
             data 
         });      
     } catch (error) {

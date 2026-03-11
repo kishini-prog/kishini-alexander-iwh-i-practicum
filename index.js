@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const app = express();
@@ -32,6 +33,38 @@ app.get('/', async (req, res) => {
         });      
     } catch (error) {
         console.error(error);
+    }
+});
+    
+    // Show the form
+app.get('/update-cobj', (req, res) => {
+    res.render('updates', { 
+        title: 'Update Custom Object Form | Integrating With HubSpot I Practicum' 
+    });
+});
+
+// Handle the form submission
+app.post('/update-cobj', async (req, res) => {
+    const createUrl = `https://api.hubapi.com/crm/v3/objects/${OBJECT_ID}`;
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    };
+
+    const newPet = {
+        properties: {
+            "name": req.body.pet_name,
+            "pet_breed": req.body.pet_breed,
+            "pet_age": req.body.pet_age
+        }
+    };
+
+    try {
+        await axios.post(createUrl, newPet, { headers });
+        res.redirect('/');
+    } catch (error) {
+        console.error(error);
+        res.send('Error creating pet. Check console for details.');
     }
 });
 

@@ -5,17 +5,18 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet", href="/css/style.css")
     body    
-        h1 Create New Pet
-        a(href="/") Return to the homepage
-        
-        form(method="POST")
-            label(for="name") Pet's Name:
-            input(type="text" name="name" required)
+        .form-wrapper
+            h1 Create New Pet
+            a(href="/") Return to the homepage
             
-            label(for="pet_breed") Breed:
-            input(type="text" name="pet_breed" required)
-            
-            label(for="pet_age") Age:
-            input(type="text" name="pet_age" required)
-            
-            input(type="submit" value="Submit")
+            form(method="POST" style="margin-top: 20px;")
+                label(for="pet_name") Pet's Name:
+                input(type="text" name="pet_name" required)
+                
+                label(for="pet_breed") Breed:
+                input(type="text" name="pet_breed" required)
+                
+                label(for="pet_age") Age:
+                input(type="number" name="pet_age" required)
+                
+                input(type="submit" value="Submit")

@@ -5,16 +5,15 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet", href="/css/style.css")
     body    
-        h1 Pet Details
-
+        h1 Custom Object Table (Pets)
         a(href="/update-cobj") Add to this table
         
-        table
+        table(style="margin-top: 20px; border-collapse: collapse; width: 100%;")
             thead
-                tr
-                    th Dog Name
-                    th Dog Breed
-                    th Dog Age
+                tr(style="background-color: #ffcccb;")
+                    th Name
+                    th Breed
+                    th Age
             tbody
                 each pet in data
                     tr
